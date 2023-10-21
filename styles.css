@@ -1,0 +1,33 @@
+.container {
+    display:flex;
+    flex-direction: column;
+    width: 400px;
+    height: 600px;
+}
+
+.buttons-row {
+    display: flex;
+    
+}
+
+.calc-button {
+    display: flex;
+    padding: 20px;
+    flex: 1;
+    background-color: green;
+}
+#zero {
+
+    flex: 2 1 auto
+
+}
+
+#result {
+    background-color: grey;
+
+}
+
+body {
+    display:flex;
+    justify-content: center;
+}
