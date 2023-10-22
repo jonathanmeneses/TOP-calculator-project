@@ -87,7 +87,7 @@ let operator = ''
 let resultDisplay = document.querySelector("#result-text")
 
 function inputUpdate(event) {
-    workingString = Number(workingString + event.target.innerHTML)
+    workingString = (workingString + event.target.innerHTML)
     resultDisplay.innerHTML = workingString
     displayCurrentInputs()
 }
@@ -131,3 +131,14 @@ clearButton.addEventListener('click', (e) => {
 })
 
 
+// Handle decimal point
+let decimalButton = document.querySelector("#decimal")
+decimalButton.addEventListener('click',decimal)
+
+// decimal
+function decimal(e) {
+    if (!(workingString.includes('.'))) {
+        workingString = workingString + "."
+        resultDisplay.innerHTML = workingString
+    }
+}
