@@ -22,6 +22,7 @@ function divide(a,b) {
 }
 
 function operate() {
+    // If no operator previously selected just show the working operator
     if (operator === '') {
         currentResult = Number(workingString)
     }
@@ -32,6 +33,28 @@ function operate() {
     workingString = ''
     resultDisplay.innerHTML = currentResult
     operator =''
+
+}
+
+function operatorHandler(event) {
+    // If there is an operator already selected, operate, then proceed
+    operate()
+    
+    switch (event.target.id) {
+        case 'addition':
+            operator = add
+            break
+        case 'subtraction':
+            operator = subtract
+            break
+        case 'multiplication':
+            operator = multiply
+            break
+        case 'division':
+            operator = divide
+            break
+    }
+    resultDisplay.innerHTML = '0'
 
 }
 
@@ -47,7 +70,7 @@ let resultDisplay = document.querySelector("#result-text")
 
 function inputUpdate(event) {
     console.log(`clicked ${event.target.id}`)
-    workingString = Number(workingString + event.target.id)
+    workingString = Number(workingString + event.target.innerHTML)
     resultDisplay.innerHTML = workingString
 
 }
@@ -61,12 +84,13 @@ for (let i=0; i < numberButtons.length; i++) {
 }
 
 // Add equals Functionality
-// If no operator previously selected just show the working operator
-
-
 let equalButton = document.querySelector("#equals")
 equalButton.addEventListener('click',operate)
 
+// Add operator function handling
+
+let addButton = document.querySelector("#addition")
+addButton.addEventListener('click',operatorHandler)
 
 
 
