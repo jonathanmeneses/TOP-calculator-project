@@ -21,8 +21,14 @@ function divide(a,b) {
         return a/b}
 }
 
-function operate(operator) {
-    currentResult = operator(Number(currentResult),Number(workingString))
+function operate() {
+    if (operator === '') {
+        currentResult = Number(workingString)
+    }
+    else {
+        currentResult = operator(Number(currentResult),Number(workingString))
+    }
+    
     workingString = ''
     resultDisplay.innerHTML = currentResult
     operator =''
@@ -36,7 +42,7 @@ function operate(operator) {
 
 let currentResult = 0;
 let workingString ='0';
-let operator = add
+let operator = ''
 let resultDisplay = document.querySelector("#result-text")
 
 function inputUpdate(event) {
@@ -59,10 +65,10 @@ for (let i=0; i < numberButtons.length; i++) {
 
 
 let equalButton = document.querySelector("#equals")
-equalButton.addEventListener('click',equals)
+equalButton.addEventListener('click',operate)
 
 function equals() {
-    if (operator = '') {
+    if (operator === '') {
         currentResult = workingString
         resultDisplay.innerHTML = currentResult
         workingString = ''
