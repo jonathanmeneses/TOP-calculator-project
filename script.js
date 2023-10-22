@@ -1,4 +1,6 @@
 
+//  ---Math Functions---
+
 // add function
 function add(a,b) {
     return a + b
@@ -21,16 +23,22 @@ function divide(a,b) {
         return a/b}
 }
 
+
+// ---Operations Functions---
+
+
 function operate() {
     // If no operator previously selected just show the working operator
     if (operator === '') {
-        currentResult = Number(workingString)
+        if (workingString !='') {
+        currentResult = Number(workingString)}
     }
     else {
         currentResult = operator(Number(currentResult),Number(workingString))
+        
     }
-    
     workingString = ''
+    
 }
 
 function operatorHandler(event) {
@@ -92,19 +100,34 @@ for (let i=0; i < numberButtons.length; i++) {
     numberButtons[i].addEventListener('click', inputUpdate)
 }
 
-// Add equals Functionality
-let equalButton = document.querySelector("#equals")
-equalButton.addEventListener('click',operatorHandler)
-
 // Add operator function handling
 
-let addButton = document.querySelector("#addition")
-addButton.addEventListener('click',operatorHandler)
-
+let operationsButtons = document.querySelectorAll(".operation")
+console.log(operationsButtons)
+for (let i=0; i < operationsButtons.length; i++) {
+    operationsButtons[i].addEventListener('click', operatorHandler)
+}
 
 function displayCurrentInputs() {
     console.log([currentResult,workingString,operator])
 }
 
+let clearButton = document.querySelector('#clear')
+clearButton.addEventListener('click', (e) => {
+    if (workingString === '') {
+        currentResult = 0;
+        workingString = '';
+        operator = '';
+        resultDisplay.innerHTML = workingString;
+    }
+
+    else {
+        workingString = '';
+        resultDisplay.innerHTML = currentResult
+    }
+    
+
+    displayCurrentInputs()
+})
 
 
