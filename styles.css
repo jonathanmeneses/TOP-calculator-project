@@ -18,7 +18,7 @@
     display: flex;
     flex: 1 0 50px;
     padding: 10px 5px;
-    background-color: lightskyblue;
+    /* background-color: lightskyblue; */
     border: 1px solid black;
     box-sizing: border-box;
     justify-content: center;
