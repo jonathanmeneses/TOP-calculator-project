@@ -1,8 +1,12 @@
 .container {
     display:flex;
     flex-direction: column;
-    width: 400px;
-    height: 600px;
+    width: 300px;
+    align-items: stretch;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
 }
 
 .buttons-row {
@@ -12,19 +16,34 @@
 
 .calc-button {
     display: flex;
-    padding: 20px;
-    flex: 1;
+    flex: 1 0 50px;
+    padding: 10px 5px;
     background-color: green;
+    border: 1px solid black;
+    box-sizing: border-box;
+    justify-content: center;
+    border-radius: 5px;
 }
 #zero {
 
-    flex: 2 1 auto
+    flex: 2 0 100px;
+    box-sizing: border-box;
 
 }
 
 #result {
     background-color: grey;
+    padding: 20px 50px;
+    display: flex;
+    border-radius: 5px;
+    
 
+}
+
+#result-text {
+    margin-left: auto;
+    margin-right: 0;
+    font-size: 24px;
 }
 
 body {
