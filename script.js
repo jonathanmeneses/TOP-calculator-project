@@ -67,15 +67,6 @@ for (let i=0; i < numberButtons.length; i++) {
 let equalButton = document.querySelector("#equals")
 equalButton.addEventListener('click',operate)
 
-function equals() {
-    if (operator === '') {
-        currentResult = workingString
-        resultDisplay.innerHTML = currentResult
-        workingString = ''
-    }
-    else {
-        operate(operator)
-    }
-}
+
 
 
