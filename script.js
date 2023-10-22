@@ -31,15 +31,15 @@ function operate() {
     }
     
     workingString = ''
-    resultDisplay.innerHTML = currentResult
-    operator =''
-
 }
 
 function operatorHandler(event) {
     // If there is an operator already selected, operate, then proceed
+    console.log(`Before Operation)`)
+    displayCurrentInputs()
     operate()
-    
+    console.log(`After Operation)`)
+    displayCurrentInputs()
     switch (event.target.id) {
         case 'addition':
             operator = add
@@ -53,9 +53,19 @@ function operatorHandler(event) {
         case 'division':
             operator = divide
             break
+        case 'equals':
+            operator = ''
+            break
     }
-    resultDisplay.innerHTML = '0'
-
+    // if (operator === '') {
+    //     resultDisplay.innerHTML = currentResult
+    // }
+    // else {
+    //     resultDisplay.innerhtml = ''
+    // }
+    resultDisplay.innerHTML = currentResult
+    console.log(`After operator Selection`)
+    displayCurrentInputs()
 }
 
 
@@ -69,10 +79,9 @@ let operator = ''
 let resultDisplay = document.querySelector("#result-text")
 
 function inputUpdate(event) {
-    console.log(`clicked ${event.target.id}`)
     workingString = Number(workingString + event.target.innerHTML)
     resultDisplay.innerHTML = workingString
-
+    displayCurrentInputs()
 }
 
 
@@ -85,12 +94,17 @@ for (let i=0; i < numberButtons.length; i++) {
 
 // Add equals Functionality
 let equalButton = document.querySelector("#equals")
-equalButton.addEventListener('click',operate)
+equalButton.addEventListener('click',operatorHandler)
 
 // Add operator function handling
 
 let addButton = document.querySelector("#addition")
 addButton.addEventListener('click',operatorHandler)
+
+
+function displayCurrentInputs() {
+    console.log([currentResult,workingString,operator])
+}
 
 
 
